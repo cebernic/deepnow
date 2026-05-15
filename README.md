@@ -2,8 +2,7 @@
 
 <div align="center">
 
-<img src="[此处填入你的 Logo 图片 URL]" alt="DeepNow Logo" width="200" />
-
+<img src="./assets/logo.png" alt="DeepNow Logo" width="200" />
 
 **全场景聚合算力网关 & 智能 RAG 融合基座**
 
