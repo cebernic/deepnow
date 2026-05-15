@@ -51,10 +51,37 @@ DeepNow 的核心理念是让“前端业务逻辑”与“后端底层模型”
 DeepNow 节点之间可以相互嵌套与聚合！除了纯粹的算力共享外，其状态记忆与私有知识系统也能被其他 DeepNow 实例无缝调用，因为上下文和知识召回已经高度融合在返回的流式响应中。你可以构建多个专精于不同领域的 DeepNow 节点（例如：A 节点懂代码，B 节点懂财务），然后再用一个“总线级”X节点 DeepNow 将它们聚合，从而打造出一个具备全领域综合能力的超级 AI 中枢。前端应用可以根据需求连接A或B也可以直接连接更上层的X节点。
 
 
-<div align="center">
-<img src="[此处填入后台 Dashboard 截图 URL]" alt="DeepNow Dashboard" width="800" />
-<p><i>DeepNow 控制台 - 全局算力编排与监控</i></p>
-</div>
+<details>
+  <summary><h3 style="display:inline-block; cursor:pointer;">📊 功能模块 1: 全局算力概览与监控 (Overview) <i><small>- 点击展开截图</small></i></h3></summary>
+  <div align="center">
+    <img src="./assets/ss1.jpg" alt="DeepNow Dashboard Overview" width="800" />
+    <p><i>DeepNow 控制台概览 - 实时监控异构算力池状态与并发峰值</i></p>
+  </div>
+</details>
+
+<details>
+  <summary><h3 style="display:inline-block; cursor:pointer;">🧠 功能模块 2: RAG 知识库与向量引擎配置 (Knowledge RAG) <i><small>- 点击展开截图</small></i></h3></summary>
+  <div align="center">
+    <img src="./assets/ss2.jpg" alt="DeepNow Dashboard RAG Settings" width="800" />
+    <p><i>RAG 配置面板 - 管理知识摄入、sqlite-vec 检索参数与自适应探针</i></p>
+  </div>
+</details>
+
+<details>
+  <summary><h3 style="display:inline-block; cursor:pointer;">⏳ 功能模块 3: 滑动窗口记忆增强策略 (Stateful Memory) <i><small>- 点击展开截图</small></i></h3></summary>
+  <div align="center">
+    <img src="./assets/ss3.jpg" alt="DeepNow Dashboard Stateful Memory" width="800" />
+    <p><i>记忆策略配置 - 物理 Key 级会话滑动窗口拦截与历史注入设置</i></p>
+  </div>
+</details>
+  
+<details>
+  <summary><h3 style="display:inline-block; cursor:pointer;">🔐 功能模块 4: Token 使用统计与细粒度对账 (Stats & Auth) <i><small>- 点击展开截图</small></i></h3></summary>
+  <div align="center">
+    <img src="./assets/ss4.jpg" alt="DeepNow Dashboard Stats & Authentication" width="800" />
+    <p><i>Token 使用明细与鉴权中心 - 监控每个 API Key 的日流量走势与高精度 Token 记录</i></p>
+  </div>
+</details>
 
 ---
 
@@ -87,8 +114,8 @@ DeepNow 节点之间可以相互嵌套与聚合！除了纯粹的算力共享外
 </details>
 
 <div align="center">
-<img src="[此处填入架构流程图 URL]" alt="DeepNow Architecture" width="800" />
-<p><i>请求流转引擎底座架构图</i></p>
+<img src="./assets/arch.png" alt="DeepNow Architecture" width="800" />
+<p><i>Basic Architecture</i></p>
 </div>
 
 ---
