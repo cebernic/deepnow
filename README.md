@@ -20,7 +20,7 @@
 
 ## 🌌 什么是 DeepNow？
 
-**DeepNow** Token 为王时代，Deepnow 是一个专为(个人/企业)打造的高可用高并发场景打造的 AI 模型网关与知识融合底座（也可以形象的称之为Token 路由器）。它不仅能将各种孤立的大语言模型（LLM/VLM）和向量模型（Embedding）统一管理，还能为那些原本无状态、无长期记忆的 API 调用，注入原生级别的 RAG 知识外脑与 SQL 级滑动窗口记忆，同时还可以原生支持OpenAI 等各家专为智能体打造的 **Responses** 协议。
+在 __Token__ 为王的本世代，Deepnow 是一个专为(个人/企业)打造的高可用高并发场景打造的 AI 模型网关与知识融合底座（也可以形象的称之为Token 路由器）。它不仅能将各种孤立的大语言模型（LLM/VLM）和向量模型（Embedding）统一管理，还能为那些原本无状态、无长期记忆的 API 调用，注入原生 RAG 知识外脑与自带高速索引的滑动窗口记忆，同时还原生支持 __OpenAI__ 等各家专为智能体打造的 **Responses** 协议。
 
 对于外部客户端（如 Chatbox、NextChat、OpenClaw、Codex 等）而言，DeepNow 是完全透明的。你只需将 Endpoint 替换为 DeepNow 的地址，即可瞬间让所有客户端拥有主备容灾、算力轮询以及深度的企业知识库支持，**100% 兼容 OpenAI API 调用标准**。
 
