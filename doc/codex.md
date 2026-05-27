@@ -35,7 +35,7 @@
 
 接下来，在同一目录下找到 config.toml 文件，然后清空该文件内的所有内容，复制并粘贴以下配置代码：
 
-``ini
+```json
 profile = "deepnow"
 
 model_provider = "deepnow"
@@ -57,3 +57,5 @@ wire_api = "responses"
 [windows]
 sandbox = "elevated"
 ```
+
+### 4. 重新启动 Codex 即可，记得要关闭图标才算真正关闭codex
