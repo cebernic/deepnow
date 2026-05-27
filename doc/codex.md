@@ -35,7 +35,7 @@
 
 接下来，在同一目录下找到 config.toml 文件，然后清空该文件内的所有内容，复制并粘贴以下配置代码：
 
-```json
+```ini
 profile = "deepnow"
 
 model_provider = "deepnow"
@@ -51,11 +51,12 @@ sandbox = "elevated"
 [model_providers.deepnow]
 name = "deepnow"
 requires_openai_auth = true
-base_url = "[http://127.0.0.1:8444/v1](http://127.0.0.1:8444/v1)"
+base_url = "http://127.0.0.1:8444/v1"
 wire_api = "responses"
 
 [windows]
 sandbox = "elevated"
 ```
+**注意**：如果开启Deepnow HTTPS模式的Endpoint，必须使用真实证书，否则codex会拒绝握手。
 
 ### 4. 重新启动 Codex 即可，记得要关闭图标才算真正关闭codex
