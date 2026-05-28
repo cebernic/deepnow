@@ -9,7 +9,7 @@
 ### 1. 寻找配置文件目录
 
 首先，你需要定位到 Codex 的主目录，并在其中找到 `config.toml` 和 `auth.json` 两个配置文件。
-> 💡 默认安装一般都在 Windows 的 "C:\Users\你名字\.codex\" 目录下。
+> 💡 默认安装一般都在 Windows 的 ["C:\\Users\\你名字\\.codex\\"] 目录下。
 ---
 
 ### 2. 配置 `auth.json` (鉴权文件)
