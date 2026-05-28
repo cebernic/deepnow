@@ -8,7 +8,7 @@
 
 ### 1. 寻找配置文件目录
 
-首先，你需要定位到 Codex 的主目录，并在其中找到 `config.toml` 和 `auth.json` 两个配置文件。
+首先，你需要定位到 Codex 的主目录，并在其中找到 `config.toml` 和 `auth.json` 两个配置文件。默认安装一般都在 Windows 的 C:\Users\你名字\.codex 目录下。
 
 > 💡 **找不到目录怎么办？**
 > 如果你无法直接在文件管理器中找到该目录，可以先**启动 Codex**，然后点击下方界面所示的按钮直接跳转进入：
@@ -25,9 +25,11 @@
 2. 复制并**粘贴**以下代码：
 
 ```json
+
 {
   "OPENAI_API_KEY": "sk-deepnow-xxxx"
 }
+
 ```
 **注意**：请将代码中的 "sk-deepnow-xxxx" 替换为你在 Deepnow 平台上实际生成的 API Key。
 
@@ -36,6 +38,7 @@
 接下来，在同一目录下找到 config.toml 文件，然后清空该文件内的所有内容，复制并粘贴以下配置代码：
 
 ```ini
+
 profile = "deepnow"
 
 model_provider = "deepnow"
@@ -54,8 +57,10 @@ requires_openai_auth = true
 base_url = "http://127.0.0.1:8444/v1"
 wire_api = "responses"
 
-[windows]
-sandbox = "elevated"
+[desktop]
+conversationDetailMode = "STEPS_COMMANDS"
+ambient-suggestions-enabled = false
+
 ```
 **注意**：如果开启Deepnow HTTPS模式的Endpoint，必须使用真实证书，否则codex会拒绝握手。
 
