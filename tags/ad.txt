@@ -1,3 +1,5 @@
+[[ 开源自荐 ]] Deepnow-> AI 算力经营时代的 Token 超级软路由（网关）,原生codex支持~
+
 受够了 API 限流、单点故障和昂贵算力？受够了AI时代为每一种基础能力安装一种能力平台？希望让项目使用永不掉线的推理API服务？
 
 项目地址: https://github.com/cebernic/deepnow

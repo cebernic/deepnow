@@ -1,90 +1,174 @@
 import requests
 import urllib3
 import json
+import sys
 
-# 忽略自签名证书的安全警告
+# certifiacate warning
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ==========================================
-#                  配置区
+#                  Config
 # ==========================================
-# 目标 deepnow Server 地址
-API_URL = "https://127.0.0.1:8444/v1/chat/completions"
+# 基础网关地址 gateway addr
+BASE_URL = "http://127.0.0.1:8444"
+API_KEY = "sk-deepnow-18acaabc63392260ecdeb6e2cb05c8a2"
 
-# 授权 Key
-API_KEY = "sk-deepnow-18ad38cd8fcb608c62c68aeed5090f3a"
+DEBUG_MODE = False
 
-# 设定系统人设与强制返回格式 (可留空)
-SYSTEM_PROMPT = "你是一个AI助手，协助用户解答问题。请确保回答简洁明了，直接切入主题，不要添加无关信息。"
-#"你是一个单选题回答助手，每次回答只帮我返回一个选择.比如A,B,C,D这种，A,B,C这种。注意：无论如何都要做一个选择,并且需要附带选择后面的选项内容而不是一个单纯的字母且不能有其它废话。"
+# 核心模式控制：
+# True  -> Demo for  SSE 流式握手 (stream=True)，实现打字机跑字效果
+# False -> SSE disabled as a standard way to make a chat (v1/chat/completions)
+DEBUG_STREAM_MODE = True
 # ==========================================
 
 def main():
+    # 动态拼接端点
+    API_URL = f"{BASE_URL}/v1/chat/completions"
     print("==================================================")
-    print("🚀 Deepnow 终端控制台客户端已启动")
-    print(f"🔗 目标端点: {API_URL}")
-    if SYSTEM_PROMPT:
-        print(f"🧠 系统指令: {SYSTEM_PROMPT}")
-    print("💡 输入内容开始对话，输入 '!!exit' 或按 Ctrl+C 退出")
-    print("==================================================\n")
+    print("🚀 Deepnow Hybrid Stateless & SSE Demo Client")
+    print(f"🔗 Target Endpoint: {API_URL}")
+    print(f"🔧 Transfer Mode: {'🌊 SSE Stream Mode' if DEBUG_STREAM_MODE else '📦 Standard Non-Stream Mode (Block)'}")
+    print(f"🔧 Raw Capture: {'🟢 Enabled' if (DEBUG_MODE and DEBUG_STREAM_MODE) else '🔴 Disabled'}")
+    print("💡 Type your message to start, type '!!exit' to quit")
+    print("==================================================\n")    
+
 
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {API_KEY}"
     }
 
-    # 维护对话上下文历史
     messages = []
-    
-    # 如果配置了系统提示词，将其作为第一条消息注入
-    if SYSTEM_PROMPT.strip():
-        messages.append({"role": "system", "content": SYSTEM_PROMPT})
 
     while True:
         try:
-            user_input = input("\n🧑 提问: ")
+            user_input = input("\n🧑 Question: ")
             
             if not user_input.strip():
                 continue
 
             if user_input.strip() == "!!exit":
-                print("👋 退出测试。")
+                print("👋 quit demo as normally.")
                 break
 
             messages.append({"role": "user", "content": user_input})
 
+            # 根据全局配置动态设置 stream 载荷
             payload = {
                 "model": "ignored_by_gateway", 
-                "messages": messages
+                "messages": messages,
+                "stream": DEBUG_STREAM_MODE  
             }
 
-            response = requests.post(API_URL, headers=headers, json=payload, verify=False)
+            # 发送请求：非流式模式下不需要启用 requests 的 stream=True 保持长连接
+            response = requests.post(
+                API_URL, 
+                headers=headers, 
+                json=payload, 
+                verify=False, 
+                stream=DEBUG_STREAM_MODE
+            )
 
             if response.status_code == 200:
-                result = response.json()
-                ai_reply = result.get("choices", [{}])[0].get("message", {}).get("content", "")
-                
-                print(f"\n🤖 回答: {ai_reply}")
+                ai_reply = ""
 
-                # 将 AI 的回复加入上下文，实现持续对话
-                messages.append({"role": "assistant", "content": ai_reply})
+                # ===========================================================
+                # 分支一：🌊 开启流式传输 (DEBUG_STREAM_MODE == True)
+                # ===========================================================
+                if DEBUG_STREAM_MODE:
+                    print("\n🤖 Answer: ", end="")
+                    sys.stdout.flush()
+                    
+                    for line in response.iter_lines():
+                        if not line:
+                            continue
+                            
+                        decoded_line = line.decode('utf-8').strip()
+                        if not decoded_line.startswith("data: "):
+                            continue
+                            
+                        content_data = decoded_line[6:].strip()
+                        if content_data == "[DONE]":
+                            break
+                        
+                        if DEBUG_MODE:
+                            print(f"\n[RAW DATA]: {content_data}")
+                            continue
+
+                        try:
+                            result = json.loads(content_data)
+                            
+                            # 轨道 A 适配：OpenAI 标准流式结构提取
+                            if "choices" in result and len(result["choices"]) > 0:
+                                delta = result["choices"][0].get("delta", {})
+                                delta_content = delta.get("content", "")
+                                if delta_content:
+                                    print(delta_content, end="")
+                                    sys.stdout.flush()
+                                    ai_reply += delta_content
+                                    
+                            # 轨道 B 适配：自研 Responses 高级协议
+                            elif "type" in result:
+                                event_type = result.get("type")
+                                if event_type == "response.output_text.delta":
+                                    delta_content = result.get("delta", "")
+                                    print(delta_content, end="")
+                                    sys.stdout.flush()
+                                    ai_reply += delta_content
+                                elif event_type == "response.reasoning.delta":
+                                    delta_reason = result.get("delta", "")
+                                    print(f"\033[90m{delta_reason}\033[0m", end="")
+                                    sys.stdout.flush()
+                            
+                        except json.JSONDecodeError:
+                            if content_data:
+                                print(content_data, end="")
+                                sys.stdout.flush()
+                                ai_reply += content_data
+                    print() # 换行
+
+                # ===========================================================
+                # 分支二：📦 采用标准的非 SSE 模式握手 (DEBUG_STREAM_MODE == False)
+                # ===========================================================
+                else:
+                    try:
+                        result = response.json()
+                        
+                        # 解析标准 OpenAI 非流式响应包：choices[0].message.content
+                        if "choices" in result and len(result["choices"]) > 0:
+                            message_node = result["choices"][0].get("message", {})
+                            ai_reply = message_node.get("content", "").strip()
+                            
+                            print(f"\n🤖 回答: {ai_reply}")
+                        else:
+                            print(f"\n⚠️ [异常]: 未能识别的非流式返回结构: {result}")
+                    except json.JSONDecodeError:
+                        # 兜底纯文本返回
+                        ai_reply = response.text.strip()
+                        print(f"\n🤖 回答: {ai_reply}")
+
+                # 统一将有效的 AI 回复追加到多轮历史上下文中
+                if ai_reply:
+                    messages.append({"role": "assistant", "content": ai_reply})
+                else:
+                    if DEBUG_STREAM_MODE and not DEBUG_MODE:
+                        print("\n⚠️ [警告]: 接收流已结束，但未解析到任何有效文本。")
+
             else:
                 print(f"\n❌ 请求失败: HTTP {response.status_code}")
+                if messages and messages[-1]["role"] == "user":
+                    messages.pop()
                 try:
-                    err_msg = response.json().get("error", response.text)
-                    print(f"详细信息: {err_msg}")
-                except json.JSONDecodeError:
-                    print(f"详细信息: {response.text}")
-                
-                # 请求失败时弹出刚加入的用户消息，防污染
-                messages.pop()
+                    print(f"错误详情: {response.text}")
+                except Exception:
+                    pass
 
         except KeyboardInterrupt:
-            print("\n\n👋 退出测试。")
+            print("\n\n👋 catch quit signal.")
             break
         except requests.exceptions.RequestException as e:
             print(f"\n❌ 网络连接异常: {e}")
-            if len(messages) > 0 and messages[-1]["role"] == "user":
+            if messages and messages[-1]["role"] == "user":
                 messages.pop()
 
 if __name__ == "__main__":
