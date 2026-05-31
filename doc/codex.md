@@ -44,7 +44,7 @@ model_reasoning_effort = "high"
 [model_providers.deepnow]
 name = "deepnow"
 base_url = "http://127.0.0.1:8444/v1"
-http_headers = { "Authorization" = "sk-deepnow-18acaabc63392260ecdeb6e2cb05c8a2" }
+http_headers = { "Authorization" = "sk-deepnow-xxx" }
 
 
 [windows]
@@ -57,7 +57,7 @@ trust_level = "trusted"
 [mcp_servers.deepnow]
 enabled = true
 url = "http://127.0.0.1:8444/mcp"
-http_headers = { "Authorization" = "sk-deepnow-18acaabc63392260ecdeb6e2cb05c8a2" }
+http_headers = { "Authorization" = "sk-deepnow-xxx" }
 
 [features]
 js_repl = false
