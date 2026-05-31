@@ -49,11 +49,6 @@ http_headers = { "Authorization" = "sk-deepnow-xxx" }
 [windows]
 sandbox = "elevated"
 
-[mcp_servers.deepnow]
-enabled = true
-url = "http://127.0.0.1:8444/mcp"
-http_headers = { "Authorization" = "sk-deepnow-xxx" }
-
 [features]
 js_repl = false
 
