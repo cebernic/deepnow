@@ -46,13 +46,8 @@ name = "deepnow"
 base_url = "http://127.0.0.1:8444/v1"
 http_headers = { "Authorization" = "sk-deepnow-xxx" }
 
-
 [windows]
 sandbox = "elevated"
-
-[projects.'f:\codex_test']
-trust_level = "trusted"
-
 
 [mcp_servers.deepnow]
 enabled = true
