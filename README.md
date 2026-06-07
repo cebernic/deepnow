@@ -15,7 +15,7 @@
 *打造极致稳定、无缝接入的私有化 AI 算力中枢。*
 
 </div>
-
+玩法非常多样，你甚至可以主模型是纯文本模型，次模型是多模态，挂载后主模型无法识别文本会自动交给次模型处理
 ---
 ## 2026-05-29 重大Update ##
 Codex 支持兼容性从只能做简单completion -> responses 对话转译且只能全文返回，到后来可以streamming responses sse，在到现在终于实现了几乎95%的全兼容，可谓进步飞速；也就是说在 Codex 新版移除了chat API方式的情况下，要使用codex完整功能（智能体能力）必须使用官方gpt模型。而Deepnow 已实现全封装转译且是sse支持，而且是通过转发最低级的兼容协议v1 completion 转译。意味着你哪怕不购买chatgpt或者使用任意低端模型，亦或者自己使用ollama 架设的qwen 3.6这样的本地模型，也可以无缝接入Codex ，让codex 可以实现自动工具调用和查询的编程。目前deepnow可能是唯一的可以实现无缝转译的工具，而且上端模型的端点(endpoint)只需要支持v1 completion即可。
