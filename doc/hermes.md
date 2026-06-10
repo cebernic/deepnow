@@ -18,8 +18,6 @@
 
 ```json
 
-{
-
 model:
   default: deepnow-auto-model
   provider: deepnow
@@ -40,8 +38,6 @@ auxiliary:
     timeout: 120
     extra_body: {}
     download_timeout: 30
-
-}
 
 ```
 
