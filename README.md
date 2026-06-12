@@ -4,7 +4,7 @@
 
 <img src="./assets/logo.png" alt="DeepNow Logo" width="200" />
 
-**全场景聚合算力网关 & 智能 RAG 融合基座**
+**全场景聚合AI网关(路由) & 智能 RAG 融合基座**
 
 [![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8?style=for-the-badge&logo=go)](https://golang.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
@@ -15,22 +15,19 @@
 *打造极致稳定、无缝接入的私有化 AI 算力中枢。*
 
 </div>
-玩法非常多样，你甚至可以主模型是纯文本模型，次模型是多模态，挂载后主模型无法识别文本会自动交给次模型处理
----
-## 2026-05-29 重大Update ##
-Codex 支持兼容性从只能做简单completion -> responses 对话转译且只能全文返回，到后来可以streamming responses sse，在到现在终于实现了几乎95%的全兼容，可谓进步飞速；也就是说在 Codex 新版移除了chat API方式的情况下，要使用codex完整功能（智能体能力）必须使用官方gpt模型。而Deepnow 已实现全封装转译且是sse支持，而且是通过转发最低级的兼容协议v1 completion 转译。意味着你哪怕不购买chatgpt或者使用任意低端模型，亦或者自己使用ollama 架设的qwen 3.6这样的本地模型，也可以无缝接入Codex ，让codex 可以实现自动工具调用和查询的编程。目前deepnow可能是唯一的可以实现无缝转译的工具，而且上端模型的端点(endpoint)只需要支持v1 completion即可。
-
-## Big Update - May 29, 2026 ##
-Codex compatibility has seen rapid progress. It evolved from simple completions to full conversational responses, then to SSE streaming, and now it finally supports nearly 95% full compatibility.
-
-Essentially, since the latest Codex version removed chat API support, unlocking its full agent functionality usually required using the official GPT models. However, Deepnow has implemented a full translation wrapper with native SSE support, bridging the gap entirely through the base v1/completions protocol.
-
-This means you don't need a ChatGPT subscription,you just  use any low-end model, or even a local Qwen 3.6 model hosted via Ollama( or Llama cpp), and seamlessly connect it to Codex for automated tool calling and programming queries. Deepnow is currently likely the only tool capable of this seamless translation, and the upstream model endpoint only needs to support standard v1/completions.
----
 
 ## 🌌 什么是 DeepNow？
 
-在 __Token__ 为王的本世代，**Deepnow** 是一个专为(个人/企业)打造的高可用高并发场景打造的 AI 模型网关与知识融合底座（也可以形象的称之为Token 路由器）。它不仅能将各种孤立的大语言模型（LLM/VLM）和向量模型（Embedding）统一管理，还能为那些原本无状态、无长期记忆的 API 调用，注入原生 RAG 知识外脑与自带高速索引的滑动窗口记忆，同时还原生支持 __OpenAI__ 等各家专为智能体打造的 **Responses** 协议。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在 __Token__ 为王的当下，**Deepnow** 是一个专为(个人/企业)打造，面向高可用、高并发，全场景使用的 AI 模型网关(路由)与知识融合底座，它不仅能将各种孤立的大语言模型（LLM/VLM）和向量模型（Embedding）统一管理、调度，还可以通过绑定算法使他们聚合使用，把多家模型运营商的资源利用起来最大化为你的前端应用或开发场景提供最强劲的Token动力。通过聚合，你可以轻松突破各家运营商的各种类TPM限制，不管是多人团队 vibe coding 或是长文本融合应用，亦或者是高密集度突发调用，Deepnow 都可以实际解决你的问题，基本上 Deepnow 就像是在AI时代你的私人软路由器(Soft Router)，只不过这个 Router 管理的流量不再是 TCP/IP 网路包，而是 Token 流量，所以你可以把 Deepnow 看成是一种全新的 TR 或 TG (Token Router / Token Gateway)。
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 使用 Deepnow 后，你可以把前端所有的app应用或者开发工具的 Token 端点(Endpoint)指向 Deepnow ，以实现对所有应用、特定应用的流量走向、负载均衡等统一控制，还可以随时在线热切换模型，你不必为每一个应用都去单独配置某家Token运营商的API key，所有应用都统一配置为 Deepnow 生成的 key 和 Endpoint 地址即可。当你希望切换运营商时又要去修改每一个应用的 Endpoint URL 和 API Key，如果是面向用户的应用，那这种切换会变得成本极其高昂。你甚至还可以让前端应用自由选择 Deepnow 系统中已配置的所有模型，实现如 OpenRouter 网关应用一样的自定义多模型功能，但 Openrouter 本身也是一个远端 token 网关，所有的端点都在远程，你完全无法掌控，一个在本地运行的多模型AI网关才是令人安心的，也没有网络抖动带来的问题。
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Deepnow 的能力远不止于这些。
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 如果你是一个团队(企业)管理员，你肯定不希望给每一个员工都购买一个自己的Key，因为模型提供商的Key如果被员工随意分享可能会给企业带来巨大损失；同样，你肯定还希望能够实时了解每一个员工或者某个应用的流量使用情况，或者在某些特定场景希望多人分摊算力和成本。这些 Deepnow 都有用武之地，因为 Deepnow 可以分发自己的Key给前端，并且可以基于 Key 来绑定特定的并发能力、模型选择和设定流量阈值等等。
+
+
+为那些原本无状态、无长期记忆的 API 调用，注入原生 RAG 知识外脑与自带高速索引的滑动窗口记忆，同时还原生支持 __OpenAI__ 等各家专为智能体打造的 **Responses** 协议。
 
 对于外部客户端（如 Chatbox、NextChat、OpenClaw、Codex 等）而言，DeepNow 是完全透明的。你只需将 Endpoint 替换为 DeepNow 的地址，即可瞬间让所有客户端拥有主备容灾、算力轮询以及深度的企业知识库支持，**100% 兼容 OpenAI API 调用标准**。
 
