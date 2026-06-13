@@ -72,45 +72,27 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**DeepNow** 节点之间可以相互级联！除了纯粹的算力共享外，其状态记忆与私有知识系统也能被其他 DeepNow 实例无缝调用，因为上下文和知识召回已经高度融合在返回的流式响应中。你可以构建多个专精于不同领域的 DeepNow 节点（例如：A节点挂载的是企业员工的知识图谱大脑，B节点挂载的是企业产品大脑，C节点为公司经营分析大脑）以一个上层节点将它们聚合，从而打造出一个具备全领域综合能力的超级私有化 AI 中枢。同时，前端应用可以分权限、需求连接A或B节点或者为最顶层超级节点。
 </details>
 
-------------------------
-后台 Dashboard GUI 截图:
-------------------------
+## ⚡ 部分UI截图
 <details>
-  <summary><h4 style="display:inline-block; cursor:pointer;">📊 网络设置<i><small>- Click 2 Detail</small></i></h4></summary>
+  <summary>::Screenshots ::</summary>
   <div align="center">
-    <img src="./assets/ss1.jpg" alt="DeepNow Dashboard Overview" width="800" />
-    <p><i>网络设置</i></p>
+    <img src="./assets/ss1.jpg" alt="DeepNow Dashboard Overview" width="400" />
+    <p><i>网络配置</i></p>
   </div>
-</details>
-
-<details>
-  <summary><h4 style="display:inline-block; cursor:pointer;">🧠 算力配置<i><small>- Click 2 Detail</small></i></h4></summary>
   <div align="center">
-    <img src="./assets/ss2.jpg" alt="DeepNow Dashboard RAG Settings" width="800" />
+    <img src="./assets/ss2.jpg" alt="DeepNow Dashboard RAG Settings" width="400" />
     <p><i>算力配置</i></p>
   </div>
-</details>
-
-<details>
-  <summary><h4 style="display:inline-block; cursor:pointer;">⏳ RAG捆绑策略<i><small>- Click 2 Detail</small></i></h4></summary>
   <div align="center">
-    <img src="./assets/ss4.jpg" alt="DeepNow Dashboard Stateful Memory" width="800" />
-    <p><i>记忆策略配置 - 物理 Key 级会话滑动窗口拦截与历史注入设置</i></p>
+    <img src="./assets/ss4.jpg" alt="DeepNow Dashboard Stateful Memory" width="400" />
+    <p><i>记忆策略配置</i></p>
   </div>
-</details>
-  
-<details>
-  <summary><h4 style="display:inline-block; cursor:pointer;">🔐 Key全景<i><small>- Click 2 Detail</small></i></h4></summary>
   <div align="center">
-    <img src="./assets/ss5.jpg" alt="DeepNow Dashboard Stats & Authentication" width="800" />
+    <img src="./assets/ss5.jpg" alt="DeepNow Dashboard Stats & Authentication" width="400" />
     <p><i>Key全景</i></p>
   </div>
-</details>
-
-<details>
-  <summary><h4 style="display:inline-block; cursor:pointer;">⏳ 模型分配<i><small>- Click 2 Detail</small></i></h4></summary>
   <div align="center">
-    <img src="./assets/ss3.jpg" alt="DeepNow Dashboard Stats & Authentication" width="800" />
+    <img src="./assets/ss3.jpg" alt="DeepNow Dashboard Stats & Authentication" width="400" />
     <p><i>Key全景</i></p>
   </div>
 </details>
