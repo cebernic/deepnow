@@ -16,7 +16,7 @@
 
 </div>
 
-## 🌌 什么是 DeepNow
+## ⚡ 什么是 DeepNow
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在 __Token__ 为王的当下，**Deepnow** 是一个专为(个人/企业)打造，面向高可用、高并发，全场景使用的 AI 模型网关(路由)与知识融合底座，它不仅能将各种孤立的大语言模型（LLM/VLM）和向量模型（Embedding）统一管理、调度，还可以通过绑定算法使他们聚合使用，实现算力整合与容灾。通过把多家模型运营商的资源整合利用，最大化为你的前端应用或开发场景提供最强劲的Token动力。通过聚合，你可以轻松突破各家模型运营商的各类TPM、并发等限制，不管是面向多人团队 vibe coding 或是长文本融合应用，亦或者是高密集度突发调用，Deepnow 都可以实际解决你的问题，基本上 Deepnow 就像是在AI时代你的私人软路由器(Soft Router)，只不过这个 Router 管理的流量不再是 TCP/IP 网路包，而是 Token 流量，所以你可以把 Deepnow 看成是一种全新的 TR 或 TG (Token Router / Token Gateway)。
 
@@ -33,6 +33,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 未来，Deepnow 还将具备整合mcp服务、Plugin、ServerSide task、模型无关的自有上下文维护、Severside skills、多模态聚合（即：你可以用不同能力的模型拼接在一起，实现图片声音识别、图形生成的总响应能力，因为我们都知道世上没有一个模型在所有领域都可以同时顶尖，我们需要按需分配AI算力路由）等等这些能力。
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 总之，Deepnow 将会是一种AI基础设施，一种强大的算力底座，一种可挂载各种先进能力的 AI 流量路由器。
+
+## ⚡ Basic Architecture
+
+  <div align="center">
+    <img src="./assets/arch.png" alt="DeepNow Architecture" width="600" />
+    <p><i>Basic Architecture</i></p>
+  </div>
 
 ## ⚡ DeepNow 解决了哪些痛点？
 
@@ -74,7 +81,7 @@
 
 ## ⚡ 部分UI截图
 <details>
-  <summary>::Screenshots ::</summary>
+  <summary>点击展开</summary>
   <div align="center">
     <img src="./assets/ss1.jpg" alt="DeepNow Dashboard Overview" width="400" />
     <p><i>网络配置</i></p>
@@ -92,49 +99,14 @@
     <p><i>Key全景</i></p>
   </div>
   <div align="center">
-    <img src="./assets/ss3.jpg" alt="DeepNow Dashboard Stats & Authentication" width="400" />
-    <p><i>Key全景</i></p>
+    <img src="./assets/ss3.jpg" alt="DeepNow Model Selection" width="400" />
+    <p><i>算力分配</i></p>
   </div>
 </details>
 
 ---
 
-<details>
-  <summary><h2 style="display:inline-block; cursor:pointer;">🔥 核心特性 (Core Features) <i><small>- 点击展开详情</small></i></h2></summary>
-
-### 🛡️ 1. 全域算力汇聚 (Compute Combined)
-* **主备冗余 (Primary/Slave Failover):** 为生产环境量身打造的高可用防线。不仅支持常规单体大模型的无缝毫秒级切换，保障 API 调用 99.99% 的可用性，更支持将一整套“聚合模型”挂载为灾备节点。
-* **同构聚合 (Token Aggregation):** 组合 ≥2 个相同的模型实例。在绝对保证原始推理智商与效果 100% 一致的前提下，完美分摊请求负载，彻底突破官方 API 的 TPM (Tokens Per Minute) 与并发 (Concurrency) 硬限制。
-* **混合轮询 (Hybrid Round-Robin):** 支持将多个异构大模型组合为“混合调度池”。它能将你手中零散、免费的模型额度全部“榨干”，自动进行负载均衡，大幅缓解业务高峰期的单一 API 压力。
-* **超混编排 (Super Hybrid):** 终极算力形态！支持将“异构单体模型”与“同构聚合模型池”进行二次组合，形成深度的“超混调度网”，满足极其复杂的企业级并发分流策略。
-
-### 🧠 2. 动态探针 RAG 向量引擎 (Dynamic RAG Engine)
-* **极致轻量底座:** 彻底摒弃臃肿的独立向量数据库（如 Milvus 等）。底层采用 CGO 直接绑定的 `sqlite-vec`，实现零依赖、高性能的单机亿级向量检索。
-* **维度自适应探针 (Auto-Probe):** 无论你接入的是 768 维的经典模型，还是 3072 维的最前沿模型（如 `gemini-embedding-001`），系统在首次摄入知识时，会自动发射探针测定 Embedding 模型的向量维度，并动态重构底层张量表结构，真正做到“即插即用”。
-* **时空溯源追踪:** 每一条被 RAG 引擎召回的上下文，不仅提供精准的知识切片，还精确携带录入时间戳与来源文件属性。这不仅彻底消灭了 AI 的幻觉，更提供了极简的知识库维护体验，让大模型在特定业务下直接拥有类似 LoRA 级微调的专有知识表现。
-
-### ⏳ 3. 滑动窗口记忆增强 (Stateful Memory Injection)
-突破标准 `/v1/chat/completions` 接口的无状态限制。DeepNow 在网关层内置了高性能关系型记忆存储引擎。外部客户端无需自行维护庞大的历史上下文，DeepNow 能基于 `API Key + Session ID` 自动实施滑动窗口拦截，将历史对话无缝拼接到当前请求中，并推送给承接算力的底层大模型。同时还支持最新的SSE或流式响应协议 `v1/Responses` 这使得Deepnow 不仅可用于计算推理，还可以应用于Agent 前端。 
-
-### 🔐 4. 细粒度资源管控 (Access Control & Stats)
-支持无限量生成以 `sk-deepnow-` 开头的专属消费令牌。并可对每一个令牌实施物理级管控：
-* 总 Token 消耗绝对额度限制。
-* 最高并发请求数 (Concurrency) 硬拦截。
-* 提供细化到每日的流量走势图表与高精度 Token 使用明细，便于管理员进行跨团队成本分摊与模型提供商对账。
-
-### 🤖 5. 自驱型 Agent 演进 (Self-Learning Agent - *TODO*)
-未来，DeepNow 将在后台引入自驱型 Agent 机制。它能够在空闲算力期间，主动调用外部 Search API 获取全网实时信息，并结合大模型推理进行“自我总结与消化”。配合用户日常被动喂入的 RAG 知识碎块，系统将实现专有领域知识库的“主动生长与进化”，甚至可以主动完成事务性连续工作任务的响应，还可以通过custom协议来实现沙箱、搜索工具等的主要能力的整体集成化，无需recall本地工具实现，极大的减少交互次数和提高智能体效能。
-
-</details>
-
-<div align="center">
-<img src="./assets/arch.png" alt="DeepNow Architecture" width="800" />
-<p><i>Basic Architecture</i></p>
-</div>
-
----
-
-## 🚀 极速接入 (Quick Start)
+## ⚡ 开箱即用 (Quick Start)
 
 DeepNow 采用全静态编译与资源内嵌技术，开箱即用，无需复杂的部署流程，除需配置大模型和Embedding模型的接口地址外，无需再配置或安装任何第三方组件；release 版无需docker或npm等相关环境安装、无任何三方依赖且跨平台，干净免维护一个二进制文件走天下（系统自带GUI dashboard/向量数据库/关系存储系统等）
 
