@@ -4,7 +4,7 @@
 
 <img src="./assets/logo.png" alt="DeepNow Logo" width="200" />
 
-**All-in-One Aggregated AI Router (Gateway) & Intelligent RAG Fusion Engine**
+**All-in-One Aggregated AI Gateway & Intelligent RAG Fusion Engine**
 
 [![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8?style=for-the-badge&logo=go)](https://golang.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
