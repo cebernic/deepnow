@@ -8,7 +8,7 @@
 
 ### 1. 寻找配置文件目录
 
-首先，你需要定位到 Codex 的主目录，并在其中找到 `config.toml` 和 `auth.json` 两个配置文件。
+首先，你需要定位到 Codex 的主目录，并在其中找到 `config.toml` 和 `auth.json` (如果auth.json没有你自己新建即可) 两个配置文件。
 > 💡 默认安装codex workdir 一般都在 Windows 的 ["C:\\Users\\你名字\\.codex\\"] 目录下。
 ---
 
@@ -56,4 +56,4 @@ js_repl = false
 ```
 **注意**：如果开启Deepnow HTTPS模式的Endpoint，必须使用真实证书，否则codex会拒绝握手。
 
-### 4. 重新启动 Codex 即可，记得要关闭图标才算真正关闭codex
+### 4. 重新启动 Codex 即可，记得要关闭图标才算真正关闭codex ***注意，如果你第一次安装，重启以后直接会看到 "Skip" 跳过按钮，点击后就可以不用电话号码验证了***
