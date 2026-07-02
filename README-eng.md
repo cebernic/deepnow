@@ -165,8 +165,16 @@ deepnow.exe
 
 # The GUI Dashboard binds defaults to port 8084 via HTTP (restricted strictly to 127.0.0.1 for baseline security).
 
-Simply navigate your browser to [http://127.0.0.1:8084/](http://127.0.0.1:8084/) to start. Ports are fully customizable via the control center.
+Simply navigate your browser to [http://targetip:8084] ,or running under local just visit http://127.0.0.1:8084/ to start. Ports are fully customizable via the control center.
 
 # Note: By default, the gateway exposes AI endpoint routes over HTTP.
 # You can easily toggle TLS (HTTPS) mode inside the 8084 GUI dashboard. Upon the first toggle, the system automatically cuts a 10-year self-signed certificate asset. However, strict downstream enterprise clients (e.g., Codex Desktop) might require validated certificate authorities.
 # For standalone sandbox development or local engineering clusters, keeping the endpoint in HTTP mode guarantees maximum cross-compatibility across all client tools.
+
+Running it for the first time will generate a vector database and multiple configuration files in the DeepNow installation directory.
+
+
+<div align="left">
+  <a href="/doc/codex.md">Codex Config HOWTO</a> | <a href="/doc/hermes.md">Hermes Config HOWTO</a>
+</div>
+
