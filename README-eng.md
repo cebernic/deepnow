@@ -41,7 +41,7 @@
 ## ⚡ Basic Architecture
 
   <div align="center">
-    <img src="./assets/arch.png" alt="DeepNow Architecture" width="600" />
+    <img src="./assets/deepnow-arch-eng.png" alt="DeepNow Architecture" width="800" />
     <p><i>Basic Architecture</i></p>
   </div>
 
@@ -113,7 +113,7 @@
 
 
 
-## ⚡ UI Dashboard Telemetry
+## ⚡ Pictures
 <details>
   <summary>Click to Expand</summary>
   <div align="center">
@@ -137,6 +137,13 @@
     <p><i>Compute Core Allocation</i></p>
   </div>
 </details>
+
+## ⚡ Capability Building
+
+  <div align="center">
+    <img src="./assets/arch.png" alt="Capability Building" width="800" />
+    <p><i>Capability Building</i></p>
+  </div>
 
 ---
 

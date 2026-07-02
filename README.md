@@ -38,10 +38,10 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 总之，Deepnow 将会是一种AI基础设施，一种强大的算力底座，一种可挂载各种先进能力的 AI 流量路由器。
 
-## ⚡ Basic Architecture
+## ⚡ 基础构架
 
   <div align="center">
-    <img src="./assets/arch.png" alt="DeepNow Architecture" width="600" />
+    <img src="./assets/deepnow-arch-cn.png" alt="DeepNow Architecture" width="800" />
     <p><i>Basic Architecture</i></p>
   </div>
 
@@ -113,7 +113,7 @@
 
 
 
-## ⚡ 部分UI截图
+## ⚡ 图片
 <details>
   <summary>点击展开</summary>
   <div align="center">
@@ -137,6 +137,13 @@
     <p><i>算力分配</i></p>
   </div>
 </details>
+
+## ⚡ 能力构建
+
+  <div align="center">
+    <img src="./assets/arch.png" alt="能力构建" width="800" />
+    <p><i>能力构建</i></p>
+  </div>
 
 ---
 
