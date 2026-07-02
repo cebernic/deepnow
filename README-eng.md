@@ -153,11 +153,13 @@ DeepNow leverages full static compilation and asset inlining technologies to pro
 
 ```bash
 # 1. Spin up the DeepNow daemon
-On Linux:
-./deepnow
+With Linux:
+./deepnow       (console)
+or
+nohup ./deepnow >& /dev/null &       (background daemon)
 
-On Windows:
-deepnow.exe 
+Windows 下:
+double click deepnow.exe (It is not recommended to run this on your local machine.)
 
 # When the initialization logs and listening address appear in the terminal, the service is fully operational. DeepNow binds natively across all available interface IPs.
 

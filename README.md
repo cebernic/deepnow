@@ -154,10 +154,12 @@ DeepNow 采用全静态编译与资源内嵌技术，开箱即用，无需复杂
 ```bash
 # 1. 运行 DeepNow 服务端
 Linux 下:
-./deepnow
+./deepnow (前台运行)
+or
+nohup ./deepnow >& /dev/null & (后台守护运行)
 
 Windows 下:
-直接执行deepnow.exe 
+直接执行 deepnow.exe (不推荐放在本机运行)
 
 #看到控制台输出文字并监听成功后即表示运行 ， deepnow 的服务端口默认绑定设备的所有IP。
 
