@@ -48,6 +48,12 @@
 ## ⚡ What Pain Points Does DeepNow Address?
 
 <details>
+  <summary><b>🎯 Arbitrary Model Delivery</b></summary>
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Probably the only AI Routing solution that enables cross-model context delivery.<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;That is to say, after you have completed part of your work, as long as your agent or chat client maintains the context, you can have the first part of the same session completed by one model, and when an unexpected situation requires switching to another model to continue, you do not need to start a new conversation at all. deepnow will reload your context and redeliver it in a format acceptable to the target model, allowing you to resume your unfinished work. For example: Deepseek writes a piece of code but runs out of tokens, and you happen to have Gemini on hand – you can immediately mount Gemini to continue your work. Under normal circumstances, the two models have many differences in their payloads; without deepnow, simply changing the endpoint in your agent or client would not allow you to continue.
+</details>
+<details>
   <summary><b>🚀 Protocol Wrapper & Transpilation</b></summary>
   <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The model landscape is mutating rapidly, with fragmented protocol formats: some are native single-model multimodal, others expose unified multi-model endpoints, while some still lean on legacy completions or strict SSE streams. If a frontend tool attempts to switch to an arbitrary upstream model, payload structural mismatches frequently yield HTTP 400 Bad Request errors. What if an advanced IDE plugin expects the latest stateful Responses protocol, but your target model only interprets legacy Completions parameters? Conventional AI gateways simply act as transparent pass-through proxies, failing to provide downstream schema consistency. This forces you to either abandon your favorite frontend client or change your model.<br><br>
