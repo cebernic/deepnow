@@ -12,7 +12,7 @@
 [![SQLite-Vec](https://img.shields.io/badge/Vector_DB-SQLite--Vec-success?style=for-the-badge)](#)
 [![Zig CC](https://img.shields.io/badge/CGO_Cross--Compiled-Zig_CC-F7A41D?style=for-the-badge&logo=zig)](https://ziglang.org/)
 
-* 打造极致稳定、无缝接入的私有化 AI 算力中枢 - 核心理念:实现任务接续对模型无关性、多模态可漂移、上下文可迁移、Provider 可切换、任务可分发、多 Key 可负载
+* 打造极致稳定、无缝接入的 AI 算力中枢 - 核心理念:实现任务接续对模型无关性、多模态可漂移、上下文可迁移、Provider 可切换、任务可分发、多 Key 可负载
 
 </div>
 
