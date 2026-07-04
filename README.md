@@ -20,19 +20,20 @@
   <a href="README-eng.md">English</a> | <a href="README.md">简体中文</a>
 </div>
 
+<hr>
+
+**Deepnow Protocol List:**
+
+| Client Protocol ↓ \ Endpoint Protocol → | R Protocol Model | C Protocol Model | M Protocol Model |
+| :--- | :--- | :--- | :--- |
+| **R Protocol Client** | **Transparent Pass-Through**<br>(R → R) | **Wrapper Translation**<br>(R → C) | **Wrapper Translation**<br>(R → M) |
+| **C Protocol Client** | **Wrapper Translation**<br>(C → R) | **Transparent Pass-Through**<br>(C → C) | **Wrapper Translation**<br>(C → M) |
+| **M Protocol Client** | **Wrapper Translation**<br>(M → R) | **Wrapper Translation**<br>(M → C) | **Transparent Pass-Through**<br>(M → M) |
+
+<hr>
+
 
 ## ⚡ 什么是 DeepNow
-
-| 客户端协议 ↓ \ 端点协议 → | R 协议 | C 协议 | M 协议 |
-
-| :--- | :--- | :--- | :--- |
-
-| **R 协议客户端** | **同协议透传**<br>(R → R) | **异构协议翻译**<br>(R → C) | **异构协议翻译**<br>(R → M) |
-
-| **C 协议客户端** | **异构协议翻译**<br>(C → R) | **同协议透传**<br>(C → C) | **异构协议翻译**<br>(C → M) |
-
-| **M 协议客户端** | **异构协议翻译**<br>(M → R) | **异构协议翻译**<br>(M → C) | **同协议透传**<br>(M → M) |
-
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在 __Token__ 为王的当下，**Deepnow** 是一个专为个人或企业打造，面向高可用、高并发、全场景适用的 AI 模型网关（路由）与知识融合底座。它不仅能将各种孤立的大语言模型（LLM/VLM）和向量模型（Embedding）统一管理、调度，还可以通过绑定算法使它们聚合使用，实现算力整合与容灾。通过把多家模型运营商的资源整合利用，能够最大化地为你的前端应用或开发场景提供最强劲的 Token 动力。通过聚合，你可以轻松突破各家模型运营商的各类 TPM、并发等限制，不管是面向多人团队的 vibe coding、长文本融合应用，亦或是高密集度的突发调用，Deepnow 都能切实解决你的问题。基本上，Deepnow 就像是你在 AI 时代的私人软路由器（Soft Router），只不过这个 Router 管理的流量不再是 TCP/IP 网络包，而是 Token 流量，所以你可以把 Deepnow 看成是一种全新的 TR 或 TG (Token Router / Token Gateway)。
 
