@@ -32,6 +32,9 @@
 
 <hr>
 
+<div align="left">
+  <a href="/doc/codex.md">Codex 配置指南</a> | <a href="/doc/hermes.md">Hermes 配置指南</a> | <a href="/doc/claude.md">Claude 配置指南</a>
+</div>
 
 ## ⚡ 什么是 DeepNow
 
@@ -192,7 +195,4 @@ Windows 下:
 
 ```
 
-<div align="left">
-  <a href="/doc/codex.md">Codex 配置指南</a> | <a href="/doc/hermes.md">Hermes 配置指南</a> | <a href="/doc/claude.md">Claude 配置指南</a>
-</div>
 
