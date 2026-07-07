@@ -14,11 +14,19 @@ thinking = {"type":"enabled"}
 
 ### Gemini Family : ###
 
+- Gemini 2.5 series:
 ```json
-Gemini 2.5 series:
 extra_body = {"google":{"thinking_config":{"thinking_budget":8192,"include_thoughts":true}}}
-
-Gemini 3 series:
-extra_body = {"google":{"thinking_config":{"thinking_level":"high","include_thoughts":true}}}
 ```
 
+- Gemini 3 series:
+```json
+extra_body = {"google":{"thinking_config":{"thinking_level":"high","include_thoughts":true}}}
+```
+### MiniMax Family : ###
+
+- M3
+```json
+thinking: {"type": "adaptive"}
+reasoning_split": true
+```
