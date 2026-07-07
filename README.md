@@ -33,7 +33,7 @@
 <hr>
 
 <div align="left">
-  <a href="/doc/codex.md">Codex 配置指南</a> | <a href="/doc/hermes.md">Hermes 配置指南</a> | <a href="/doc/claude.md">Claude 配置指南</a> | <a href="/doc/extra_body.md">主流模型调优</a>
+  <a href="/doc/codex.md">Codex 配置指南</a> | <a href="/doc/hermes.md">Hermes 配置指南</a> | <a href="/doc/claude.md">Claude 配置指南</a> | <a href="/doc/extra_body.md">extra body调优</a>
 </div>
 
 ## ⚡ 什么是 DeepNow
