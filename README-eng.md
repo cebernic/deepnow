@@ -54,7 +54,7 @@
 <details>
   <summary><b>🎯 Arbitrary Model Delivery</b></summary>
   <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Probably the only AI Routing solution that enables cross-model context delivery.<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Probably the only AI Routing solution that enables self cached cross-model context delivery.<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;That is to say, after you have completed part of your work, as long as your agent or chat client maintains the context, you can have the first part of the same session completed by one model, and when an unexpected situation requires switching to another model to continue, you do not need to start a new conversation at all. deepnow will reload your context and redeliver it in a format acceptable to the target model, allowing you to resume your unfinished work. For example: Deepseek writes a piece of code but runs out of tokens, and you happen to have Gemini on hand – you can immediately mount Gemini to continue your work. Under normal circumstances, the two models have many differences in their payloads; without deepnow, simply changing the endpoint in your agent or client would not allow you to continue.
 </details>
 <details>
@@ -172,6 +172,8 @@ double click deepnow.exe (It is not recommended to run this on your local machin
 # The GUI Dashboard binds defaults to port 8084 via HTTP (restricted strictly to 127.0.0.1 for baseline security).
 
 Simply navigate your browser to [http://targetip:8084] ,or running under local just visit http://127.0.0.1:8084/ to start. Ports are fully customizable via the control center.
+
+default user and password : admin / 12345 . You can modify password and UI language anytime. 
 
 # Note: By default, the gateway exposes AI endpoint routes over HTTP.
 # You can easily toggle TLS (HTTPS) mode inside the 8084 GUI dashboard. Upon the first toggle, the system automatically cuts a 10-year self-signed certificate asset. However, strict downstream enterprise clients (e.g., Codex Desktop) might require validated certificate authorities.
