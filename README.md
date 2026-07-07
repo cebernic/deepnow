@@ -68,7 +68,7 @@
 <details>
   <summary><b>🎯 任意模型投递</b></summary>
   <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可能是目前唯一实现跨模型上下文投递的AI Routing方案。<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可能是目前唯一实现跨模型自维上下文Cache投递的AI Routing方案。<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;也就是说你的工作执行了一半后，只要你的智能体或者对话客户端维护了上下文，你可以实现在同一个会话里前面的工作是一个模型完成的，当遇到突发状况需要切换模型继续工作时你完全不必要新开对话，deepnow 会把你的上下文重新加载并按照目标模型可以接受的格式重新投递，使你能继续你未完成的工作。比如：Deepseek写了一段代码后token不够了，而你正好手头还有Gemini，你可以立刻通过挂载Gemini来继续你手头的工作。普通情况下2者模型在payload上有很多不同，没有deepnow你即便在智能体会客户端上简单更改端点(Endpoint)是无法继续的。
 </details>
 <details>
