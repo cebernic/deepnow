@@ -16,7 +16,7 @@ thinking = {"type":"enabled"}
 
 - Gemini 2.5 series:
 ```json
-extra_body = {"google":{"thinking_config":{"thinking_budget":8192,"include_thoughts":true}}}
+extra_body = {"google":{"thinking_config":{"thinking_budget":1024,"include_thoughts":true}}}
 ```
 
 - Gemini 3 series:
