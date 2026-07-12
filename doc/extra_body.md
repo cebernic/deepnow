@@ -6,7 +6,7 @@ These are only a partial example of configurations; you can refer to each model'
 
 > Copy the full code into the extra body on Menu Model Configure in Deepnow.
 
-### Deepseek 4 Family : ###
+### Deepseek 4 Family (think mode enable): ###
 ```json
 reasoning_effort = "high"
 thinking = {"type":"enabled"}
@@ -14,16 +14,16 @@ thinking = {"type":"enabled"}
 
 ### Gemini Family : ###
 
-- Gemini 2.5 series:
+- Gemini 2.5 series (think mode & thought msg):
 ```json
 extra_body = {"google":{"thinking_config":{"thinking_budget":1024,"include_thoughts":true}}}
 ```
 
-- Gemini 3 series:
+- Gemini 3 series (think mode & thought msg):
 ```json
 extra_body = {"google":{"thinking_config":{"thinking_level":"high","include_thoughts":true}}}
 ```
-### MiniMax Family : ###
+### MiniMax Family (think mode): ###
 
 - M3
 ```json
