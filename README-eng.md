@@ -162,7 +162,7 @@ With Linux:
 or
 nohup ./deepnow >& /dev/null &       (background daemon)
 
-Windows 下:
+Windows:
 double click deepnow.exe (It is not recommended to run this on your local machine.)
 
 # When the initialization logs and listening address appear in the terminal, the service is fully operational. DeepNow binds natively across all available interface IPs.
