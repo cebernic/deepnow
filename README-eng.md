@@ -21,6 +21,20 @@
   <a href="README-eng.md">English</a> | <a href="README.md">简体中文</a>
 </div>
 
+<hr>
+
+**Deepnow Protocol List:**
+
+| Client Protocol ↓ \ Endpoint Protocol → | R Protocol Model | C Protocol Model | M Protocol Model |
+| :--- | :--- | :--- | :--- |
+| **R Protocol Client** | **Transparent Pass-Through**<br>(R → R) | **Wrapper Translation**<br>(R → C) | **Wrapper Translation**<br>(R → M) |
+| **C Protocol Client** | **Wrapper Translation**<br>(C → R) | **Transparent Pass-Through**<br>(C → C) | **Wrapper Translation**<br>(C → M) |
+| **M Protocol Client** | **Wrapper Translation**<br>(M → R) | **Wrapper Translation**<br>(M → C) | **Transparent Pass-Through**<br>(M → M) |
+
+<hr>
+
+
+
 
 ## ⚡ What is DeepNow
 
