@@ -25,8 +25,10 @@ extra_body = {"google":{"thinking_config":{"thinking_level":"high","include_thou
 ```
 ### MiniMax Family (think mode): ###
 
-- M3
+- M3 or M2.7
 ```json
-thinking: {"type": "adaptive"}
-reasoning_split": true
+reasoning = {"effort":"high"}
+reasoning_split = true
+service_tier = "priority"
+thinking = {"type":"adaptive"}
 ```
